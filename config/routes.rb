@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'articles/index'
+
   resources :articles, only: [:index]
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
