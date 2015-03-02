@@ -1,4 +1,12 @@
 
+<h1>
+<select name="articles">
+  <%= @articles.each do |article| %>
+      <option value="<%= article.id %>"><%= article.name %></option>
+  <% end %>
+</select>
+</h1>
+
 <h1>Articles</h1>
 <% @articles.each do |article| %>
     <div>
@@ -6,3 +14,4 @@
       <%= simple_format article.body %>
     </div>
 <% end %>
+

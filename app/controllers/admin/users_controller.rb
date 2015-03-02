@@ -11,6 +11,7 @@ class Admin::UsersController < ApplicationController
     @user = User.new(params[:user])
     respond_to do |format|
       if @user.save
+        UserMailer.signup_confirmation(@user).deliver
         format.html { redirect_to admin_users_url, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: [:admin,@user] }
       else
